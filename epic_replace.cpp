@@ -1,8 +1,6 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 
-#define STRING_EMPTY _strdup("")
-
 typedef unsigned int uint;
 
 uint clamp(uint in, uint min, uint max)
