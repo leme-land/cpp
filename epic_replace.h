@@ -1,5 +1,9 @@
-#define _CRT_SECURE_NO_WARNINGS
-#include <iostream>
+#pragma once
+
+#define _CRT_SECURE_NO_WARNINGS // strcat_s and strcpy_s are shit
+
+#include <string.h>
+#include <stdlib.h>
 
 typedef unsigned int uint;
 
@@ -98,15 +102,4 @@ char* strreplace(char* sourceString, char* oldString, char* newString)
 char* strreplace(const char* sourceString, const char* oldString, const char* newString)
 {
 	return strreplace(_strdup(sourceString), _strdup(oldString), _strdup(newString));
-}
-
-int main()
-{
-	const char* test = "Hello my name is erratic!";
-	std::cout << "Initial Result: " << test << "\n";
-
-	char* newTest = strreplace(test, "erratic", "leme");
-	std::cout << "Final Result: " << newTest << "\n\n";
-
-	return 0;
 }
