@@ -1,7 +1,5 @@
 #pragma once
 
-#define _CRT_SECURE_NO_WARNINGS // strcat_s and strcpy_s are shit
-
 #include <string.h>
 #include <stdlib.h>
 
@@ -50,7 +48,7 @@ char* strappend(char* string, char character)
 	uint length = strlen(string);
 
 	char* newString = new char[length + 2];
-	strcpy(newString, string);
+	strcpy_s(newString, length + 1, string);
 
 	newString[length] = character;
 	newString[length + 1] = '\0';
@@ -89,7 +87,7 @@ char* strreplace(char* sourceString, char* oldString, char* newString)
 		char* test = strsub(sourceString, i, i + oldLength);
 		if (strcmp(test, oldString) == 0)
 		{
-			strcat(finalString, newString);
+			strcat_s(finalString, finalLength, newString);
 			i += oldLength - 1;
 		}
 		else
